@@ -30,8 +30,8 @@ puts "5 skills created"
           be distracted by the readable content of a page when looking at
           its layout. The point of using Lorem Ipsum is that it has a 
           more-or-less normal distribution of letters, as opposed to using",
-        main_image: "http://placeholder.it/600x400",
-        thumb_image: "http://placeholder.it/350x200" 
+        main_image: "https://via.placeholder.com/600x400",
+        thumb_image: "https://via.placeholder.com/150" 
     )
 end
 puts "9 portfolio items created"
