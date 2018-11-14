@@ -14,12 +14,7 @@ class PortfoliosController < ApplicationController
     end
     
     def create
-        @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, 
-                                                                         :subtitle, 
-                                                                         :body,
-                                                                         technologies_attributes: [:name]
-                                                                        ))
-
+        @portfolio_item = Portfolio.new(portfolios_params)
        
         if @portfolio_item.save
              redirect_to portfolios_path, notice: 'Portfolio was successfully created.'
@@ -36,10 +31,7 @@ class PortfoliosController < ApplicationController
     def update
         @portfolio_item = Portfolio.find(params[:id])
 
-      if  @portfolio_item.update(params.require(:portfolio).permit(:title, 
-                                                        :subtitle, 
-                                                        :body
-                                                        ))
+      if  @portfolio_item.update(portfolios_params)
         redirect_to portfolios_path, notice: 'The record was successfully updated.' 
       else
        render :edit 
@@ -61,5 +53,12 @@ class PortfoliosController < ApplicationController
      
      
     end
-
+    private
+    
+    def portfolios_params
+        params.require(:portfolio).permit(:title,
+                                         :subtitle, 
+                                         :body,
+                                        technologies_attributes: [:name])
+    end
 end
