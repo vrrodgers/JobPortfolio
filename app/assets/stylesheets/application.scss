@@ -178,11 +178,22 @@ body {
 /*
  * Custom Styles
  */
-.card-body{
+.card-block{
     color: black;
     text-align: left;
     
 }
 .auth-links a{
     color: #333;
+}
+
+
+
+
+
+.login > .card{
+    width: 22rem;
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
 }
