@@ -41,6 +41,7 @@ gem 'bluetulip_view_tool', git:'https://github.com/vrrodgers/bluetulip_view_tool
 gem 'petergate', '~> 2.0', '>= 2.0.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
