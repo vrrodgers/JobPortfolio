@@ -64,11 +64,6 @@ class PortfoliosController < ApplicationController
      
     end
     private
-
-    def set_portfolio_item
-        @portfolio_item = Portfolio.find(params[:id])
-
-    end
     
     def portfolios_params
         params.require(:portfolio).permit(:title,
@@ -79,4 +74,9 @@ class PortfoliosController < ApplicationController
                                         technologies_attributes: [:name]
                                     )
     end
+     def set_portfolio_item
+        @portfolio_item = Portfolio.find(params[:id])
+
+    end
+
 end
