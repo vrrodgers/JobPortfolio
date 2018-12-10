@@ -4,7 +4,9 @@ class Blog < ApplicationRecord
   friendly_id :title, use: :slugged
 
   validates_presence_of :title, :body
+
   belongs_to :topic
+  has_many :comments, dependent: :destroy
 
   def self.feature_blogs
     limit(2)
