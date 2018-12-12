@@ -1,5 +1,7 @@
 class TopicsController < ApplicationController
+  before_action :set_side_bar_topics
   layout 'blog'
+
   def index
     @topics = Topic.all
   end
@@ -15,4 +17,10 @@ class TopicsController < ApplicationController
     @page_title = "My Portfolio Blog"
   end
   
+  private
+
+  def set_side_bar_topics
+    @set_side_bar_topics = Topic.with_blogs
+  end
+
 end
