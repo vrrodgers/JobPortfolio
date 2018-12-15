@@ -5,11 +5,14 @@ User.create!(
   role: "site_admin"
 )
 puts "admin user created"
+
+
 3.times do |topic|
     Topic.create!(
     title: "Topic #{topic}"
     )
 end
+
 puts "3 Topics created"
 
 10.times do |blog|
