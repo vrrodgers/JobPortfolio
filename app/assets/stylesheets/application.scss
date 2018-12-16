@@ -36,7 +36,7 @@ body {
 }
 
 body {
-    color: #fff;
+    color: white;
     text-align: center;
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
 }
@@ -215,11 +215,11 @@ height: auto;
 z-index: -100;
 -webkit-transform: translateX(-50%) translateY(-50%);
 transform: translateX(-50%) translateY(-50%);
-background: image-url('home2_bg.png') no-repeat;
+background: image-url('home.png') no-repeat;
 background-size: cover;
 }
 .app-footer{
-    color: white;
+    color: rgb(24, 22, 22);
 }
 
 .tech-news{

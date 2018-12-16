@@ -7,6 +7,7 @@
     <title><%= @page_title%> </title>
     <%= csrf_meta_tags %>
     <link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei" rel="stylesheet">
+    
     <meta name="keywords" content="<%= @seo_keywords %>" />
     
     <%= favicon_link_tag 'favicons/favicon.ico' %>
@@ -19,17 +20,7 @@
    <div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="cover-container">
-          
-        
-          <%= video_tag(
-          'HardDrivePhotojpeg.mp4',
-          id: 'background',
-          autoplay: true,
-          loop: true,
-          muted: true,
-          poster: 'home2_bg.png'
-          )
-          %>
+          <div id="background"></div>
         
           <%= render "shared/application_nav" %>
           <%= yield %>
