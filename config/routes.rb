@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :portfolios, except: [:show] do
     put :sort, on: :collection
   end
-
+  resources :contacts, only: [:new, :create]
   get 'angular-items', to: 'portfolios#angular'
   get 'portfolio/:id',to: 'portfolios#show', as: 'portfolio_show'
   
