@@ -1,79 +1,65 @@
-<div class="app-card-container">
-    <div class="card">
-        <h1>About Me </h1>
-         <hr>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
+
+<div class="container">
+    <%-# begin about me -%>
+    <div class="card about-me">
         <div class="row">
             <div class="col-md-4">
                 <%= image_tag " ", width: 300, alt: "Profile Image", class:'profile-img' %>
-                <div class="skills">
-                    <% @skills.each do |skill| %>
-                        <div class="skill">
-                            <h4><%= skill.title %></h4>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped bg-waring"
-                                    role="progressbar"
-                                    aria-valuenow="<%= skill.percent_utilized%>"
-                                    aria-valuemax="100"
-                                    style="width: <%= skill.percent_utilized %>%"
-                                ></div>
-                            </div>   
-                        </div>     
-                    <% end %> 
-                </div>
+                
             </div>
             <div class="col-md-8">
+
+               <h1>About Me </h1>
+               
+                
+               <hr>         
                 <p>Well trained Web Developer that knows how to create and modify web content. Has experience in  
 
                 analyzing customer needs working with teams and using software for manipulating multimedia  
 
                 With the capacity to adapt and learn fast knows how to apply all stages of web development 
                 </p>
+            </div>
+                
+        </div>
+    </div>
 
-                <p>
-                    <button
-                        class="btn btn-primary"
-                        type= "button"
-                        data-toggle="collapse"
-                        data-target="#jobHistory"
-                        aria-expanded="false"
-                        aria-controller="jobHistory"
-                    >
-                      Job History
-                    </button>
+        <%-# end about me -%>
+        <%-# begin skills section -%>
 
-                     <button
-                        class="btn btn-primary"
-                        type= "button"
-                        data-toggle="collapse"
-                        data-target="#education"
-                        aria-expanded="false"
-                        aria-controller="jobHistory"
-                    >
-                      Education
-                    </button>
-                </p>
-                <p>
-                    <div class="collapse" id="jobHistory">
-                        <div class="card card-block">
-                            job1
-                        </div>
-                         <div class="card card-block">
-                            job2
-                        </div>
+       <div class="card skill-card">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4><%=fa_icon "pencil-alt"%> Education </h1>
+                </div>
+               
+                <div class="col-md-4">
+                    <h4><%=fa_icon "folder"%>Projects </h1>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="skill-icon"><%=fa_icon "layer-group"%> Skills </h4>
+                    <div class="skills">
+                        <% @skills.each do |skill| %>
+                            <div class="skill">
+                                <h4><%= skill.title %></h4>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-waring"
+                                        role="progressbar"
+                                        aria-valuenow="<%= skill.percent_utilized%>"
+                                        aria-valuemax="100"
+                                        style="width: <%= skill.percent_utilized %>%"
+                                    >
+                                    </div>
+                                </div>   
+                            </div>     
+                        <% end %> 
+                    
                     </div>
-                    <div class="collapse" id="education">
-                        <div class="card card-block">
-                            school1
-                        </div>
-                         <div class="card card-block">
-                            school 2
-                        </div>
-                    </div>
-                </p>
+                </div>
             </div>
         </div>
-
     </div>
 </div>
 

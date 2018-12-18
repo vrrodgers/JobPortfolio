@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "gritter";
+@import "font-awesome";
 
 /*
  * Globals
@@ -223,4 +224,16 @@ card-block{
     margin-top: 10px;
     margin-bottom:10px;
     
+}
+
+.skill-card{
+    background-color: #202020;
+}
+.about-me{}
+
+.fas fa-university{
+    color: white;
+}
+.fa-layer-group i {
+    background-color: white;
 }
