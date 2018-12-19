@@ -37,6 +37,12 @@
                
                 <div class="col-md-4">
                     <h4 class="skill-spacing"><%=fa_icon "folder"%>Projects </h4>
+                    <% @project.each do |project|%>
+                        <%= project.title %>
+                        <% project.project_descriptions.each do |description| %>
+                            <%= description.body %>
+                        <%end%>
+                    <%end%>
                 </div>
                 <div class="col-md-4 column-spacing">
                     <h4 class="skill-icon skill-spacing"><%=fa_icon "layer-group"%> Skills </h1>

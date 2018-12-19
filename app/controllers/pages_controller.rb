@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   def about
     @skills =Skill.all
     @contact = Contact.new
+    @project = Project.where(project_type: 1)
 
   end
 
