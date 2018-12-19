@@ -29,22 +29,22 @@
         <%-# end about me -%>
         <%-# begin skills section -%>
 
-       <div class="card skill-card column-spacing">
+       <div class="skill-card column-spacing">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 skill-background">
                     <h4 class="skill-spacing"><%=fa_icon "pencil-alt"%> Education </h1>
                 </div>
                
-                <div class="col-md-4">
+                <div class="col-md-4 skill-background">
                     <h4 class="skill-spacing"><%=fa_icon "folder"%>Projects </h4>
                     <% @project.each do |project|%>
-                        <%= project.title %>
+                        <%= project.title %> <a href=<%= project.url %> target="_blank" ><i class="fab fa-github"></i></a>
                         <% project.project_descriptions.each do |description| %>
-                            <%= description.body %>
+                            <p class="body-text"><%= description.body %></p>
                         <%end%>
                     <%end%>
                 </div>
-                <div class="col-md-4 column-spacing">
+                <div class="col-md-4 skill-background">
                     <h4 class="skill-icon skill-spacing"><%=fa_icon "layer-group"%> Skills </h1>
                     <div class="skills">
                         <% @skills.each do |skill| %>

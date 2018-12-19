@@ -226,8 +226,8 @@ card-block{
     
 }
 
-.skill-card{
-    background-color: #202020;
+.skill-background {
+    background: image-url('dark-triangles') no-repeat;
 }
 .about-me{
     background-color: transparent;
@@ -286,7 +286,7 @@ card-block{
     height: 1px;
     overflow: hidden;
     /* font-size: 0.75rem; */
-    background-color: #0b0b0b;
+    background-color: #e5e4e2;
     border-radius: 0.25rem;
     margin-right: 20px;
 }
@@ -298,4 +298,7 @@ card-block{
         font-size: 10px;
         float: right;
         margin-right: 20px;
+    }
+    .body-text{
+        font-size: 10px;
     }
