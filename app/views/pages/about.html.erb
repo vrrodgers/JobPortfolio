@@ -33,6 +33,12 @@
             <div class="row">
                 <div class="col-md-4 skill-background">
                     <h4 class="skill-spacing"><%=fa_icon "pencil-alt"%> Education </h1>
+                    <% @education.each do |education| %>
+                        <h6><%= education.name %></h6>
+                        <p class="education_title"><%= education.title %></p>
+                        <p class="body-text"><%= education.description %></p>
+                        <p class="body-text">Year completed <%= education.year_completed %></p>
+                    <%end%>    
                 </div>
                
                 <div class="col-md-4 skill-background">

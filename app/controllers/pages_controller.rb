@@ -5,9 +5,11 @@ class PagesController < ApplicationController
   end
 
   def about
+    @project_type = ProjectType.type_project
     @skills =Skill.all
     @contact = Contact.new
-    @project = Project.where(project_type: 1)
+    @project = Project.where(project_type: @project_type.id)
+    @education = Education.all
 
   end
 
