@@ -1,0 +1,47 @@
+
+    <div class="contact-card">
+        <h1 class="header-title">Get In Touch</h1>
+        
+        <%= form_for  @contact do |f| %>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                            </span>
+                          <%= f.text_field :name, class:"form-control", id:"name", name:"nm", placeholder:"Name",required: true %>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-group">
+                            <%= f.email_field :email, class:"form-control", id:"email", name:"em", placeholder:"Email", required: true%>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="phone" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="10" placeholder="Mobile No." required="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+        
+                    <div class="form-group message-box">
+                        <div class="input-group">
+                            <%= f.text_area :message, as: :text, class:"form-control ", rows:"5", id:"comment", name:"FB", placeholder:"Type Your Message/Feedback here...", required: true%>
+                        </div>
+                    </div>
+                    
+                    <div class="hidden">
+                        <%= f.hidden_field :nickname, hint: 'leave this field blank', class:"form-control"  %>
+                    </div>
+            
+                    <%= f.submit 'Send', class: "btn btn-info btn-send"%>
+                </div>
+            </div>
+        <%end%>
+    </div>
+
+
+		

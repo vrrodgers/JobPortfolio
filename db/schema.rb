@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181210170500) do
+ActiveRecord::Schema.define(version: 20181219004125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,38 @@ ActiveRecord::Schema.define(version: 20181210170500) do
     t.integer "position"
   end
 
+  create_table "project_descriptions", force: :cascade do |t|
+    t.string "name"
+    t.text "body"
+    t.bigint "project_id"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_descriptions_on_project_id"
+  end
+
+  create_table "project_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.string "title"
+    t.string "state"
+    t.string "city"
+    t.string "start_month"
+    t.integer "start_year"
+    t.string "end_month"
+    t.integer "end_year"
+    t.text "thumb_image"
+    t.bigint "project_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_type_id"], name: "index_projects_on_project_type_id"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "title"
     t.integer "percent_utilized"
@@ -99,5 +131,6 @@ ActiveRecord::Schema.define(version: 20181210170500) do
   add_foreign_key "blogs", "topics"
   add_foreign_key "comments", "blogs"
   add_foreign_key "comments", "users"
+  add_foreign_key "projects", "project_types"
   add_foreign_key "technologies", "portfolios"
 end

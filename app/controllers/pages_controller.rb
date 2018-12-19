@@ -6,6 +6,8 @@ class PagesController < ApplicationController
 
   def about
     @skills =Skill.all
+    @contact = Contact.new
+
   end
 
   def contact

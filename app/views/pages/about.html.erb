@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
 
-<div class="container">
+
     <%-# begin about me -%>
-    <div class="card about-me">
+    <div class=" about-me">
         <div class="row">
             <div class="col-md-4">
                 <%= image_tag " ", width: 300, alt: "Profile Image", class:'profile-img' %>
@@ -29,21 +29,23 @@
         <%-# end about me -%>
         <%-# begin skills section -%>
 
-       <div class="card skill-card">
+       <div class="card skill-card column-spacing">
             <div class="row">
                 <div class="col-md-4">
-                    <h4><%=fa_icon "pencil-alt"%> Education </h1>
+                    <h4 class="skill-spacing"><%=fa_icon "pencil-alt"%> Education </h1>
                 </div>
                
                 <div class="col-md-4">
-                    <h4><%=fa_icon "folder"%>Projects </h1>
+                    <h4 class="skill-spacing"><%=fa_icon "folder"%>Projects </h4>
                 </div>
-                <div class="col-md-4">
-                    <h4 class="skill-icon"><%=fa_icon "layer-group"%> Skills </h4>
+                <div class="col-md-4 column-spacing">
+                    <h4 class="skill-icon skill-spacing"><%=fa_icon "layer-group"%> Skills </h1>
                     <div class="skills">
                         <% @skills.each do |skill| %>
                             <div class="skill">
-                                <h4><%= skill.title %></h4>
+                            <h7 class="skill-percent"><%= skill.percent_utilized %>%</h7>
+                                <h6><%= skill.title %></h6>
+                                
                                 <div class="progress">
                                     <div class="progress-bar progress-bar-striped bg-waring"
                                         role="progressbar"
@@ -60,8 +62,9 @@
                 </div>
             </div>
         </div>
+        <%= render "contact" %>    
     </div>
-</div>
+
 
 
 

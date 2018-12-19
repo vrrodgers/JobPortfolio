@@ -229,7 +229,9 @@ card-block{
 .skill-card{
     background-color: #202020;
 }
-.about-me{}
+.about-me{
+    background-color: transparent;
+}
 
 .fas fa-university{
     color: white;
@@ -237,3 +239,63 @@ card-block{
 .fa-layer-group i {
     background-color: white;
 }
+
+.contact-card{
+    background-color: transparent;
+    
+}
+.header-title{
+    color: #2c3e50;
+    display: inline-block;
+    font-size: 36px;
+    padding-bottom: 10px;
+    position: relative;
+    z-index: 2;
+    text-underline-position: center;
+}
+
+.form-group{
+    margin-left: 10px;
+}
+.message-box{
+    margin-right: 20px;
+}
+.btn-send{
+    margin-bottom:  10px;
+    width: 50%;
+}
+.skill-spacing{
+    margin-top: 1em; 
+}
+
+
+.progress-bar {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* color: #fff; */
+    /* text-align: center; */
+    /* white-space: nowrap; */
+    background-color: #e8d608;
+    transition: width 0.6s ease;
+    
+}
+
+.progress {
+    display: flex;
+    height: 1px;
+    overflow: hidden;
+    /* font-size: 0.75rem; */
+    background-color: #0b0b0b;
+    border-radius: 0.25rem;
+    margin-right: 20px;
+}
+
+.column-spacing{
+    margin-bottom: 10px;
+}
+    .skill-percent{
+        font-size: 10px;
+        float: right;
+        margin-right: 20px;
+    }
