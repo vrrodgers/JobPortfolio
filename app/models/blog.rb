@@ -8,6 +8,8 @@ class Blog < ApplicationRecord
   belongs_to :topic
   has_many :comments, dependent: :destroy
 
+   acts_as_taggable
+
   def self.feature_blogs
     limit(2)
   end
