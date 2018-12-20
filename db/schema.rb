@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181220154323) do
+ActiveRecord::Schema.define(version: 20181220232310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 20181220154323) do
     t.bigint "topic_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
     t.index ["topic_id"], name: "index_blogs_on_topic_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -61,6 +67,14 @@ ActiveRecord::Schema.define(version: 20181220154323) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "portfolio_images", force: :cascade do |t|
+    t.text "image"
+    t.bigint "portfolio_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["portfolio_id"], name: "index_portfolio_images_on_portfolio_id"
+  end
+
   create_table "portfolios", force: :cascade do |t|
     t.string "title"
     t.string "subtitle"
@@ -70,6 +84,9 @@ ActiveRecord::Schema.define(version: 20181220154323) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position"
+    t.string "client"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_portfolios_on_category_id"
   end
 
   create_table "project_descriptions", force: :cascade do |t|
@@ -169,6 +186,7 @@ ActiveRecord::Schema.define(version: 20181220154323) do
   add_foreign_key "blogs", "topics"
   add_foreign_key "comments", "blogs"
   add_foreign_key "comments", "users"
+  add_foreign_key "portfolio_images", "portfolios"
   add_foreign_key "projects", "project_types"
   add_foreign_key "technologies", "portfolios"
 end
