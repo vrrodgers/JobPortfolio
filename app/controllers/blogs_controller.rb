@@ -1,17 +1,21 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
   before_action :set_sidebar_topics, except: [:update, :create, :destroy, :toggle_status]
-  before_action :set_user, only: [:index]
+  before_action :set_user, only: [:index, :search]
+  before_action :set_blog_title, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_topic, only: [:index, :search]
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :edit, :toggle_status]}, site_admin: :all
 
-
+  def search
+    if params[:search]
+      @blogs= Blog.page.where('title ILIKE ?', "%" + params[:search] + "%").per(5).latest
+    end
+  end  
   
   # GET /blogs
   # GET /blogs.json
   def index
-    @topic = Topic.all
-    @user = User.first
     case
       when params[:title] && @admin_user
         @blogs = @topic.blogs.page(params[:page]).per(5).latest
@@ -116,5 +120,21 @@ class BlogsController < ApplicationController
   def set_user
     @admin_user = logged_in?(:site_admin)
     @non_admin = !logged_in?(:site_admin)
+    @user = User.first
   end
+
+  def set_blog_title
+    @page_title = @blog.title
+  end
+    
+  def set_topic
+    if logged_in?(:site_admin)
+      @topics= Topic.with_blogs
+    else
+      @topics= Topic.with_blogs_published
+    end
+    @topic= Topic.find_by(:title => params[:title])
+
+  end
+
 end

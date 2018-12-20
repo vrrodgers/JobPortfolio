@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
   before_action :set_side_bar_topics
+  before_action :set_user, only: [:index, :show]
   layout 'blog'
 
   def index
@@ -21,6 +22,10 @@ class TopicsController < ApplicationController
 
   def set_side_bar_topics
     @set_side_bar_topics = Topic.with_blogs
+  end
+
+  def set_user
+    @user = User.first
   end
 
 end

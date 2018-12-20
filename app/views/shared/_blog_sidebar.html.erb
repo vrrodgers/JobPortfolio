@@ -1,4 +1,15 @@
 <div class="col-md-4 pull-right" >
+    <aside class="widget widget_search">
+     <%= form_tag search_blogs_path, method: :get, class: "navbar-form navbar-center", role: "search" do %>
+      <p>
+        <%=text_field_tag :search, params[:search], class: "form-control", placeholder: "Hit enter to search..." %>
+        <%= button_tag("Search", name: nil, class: "search-button") do%>
+          <%= fa_icon "search"%>
+        <%end%>
+      </p>
+    <%end%>   
+</aside>
+
     <div class="sidebar-module sidebar-module-inset">
        
       <p><span>"</span>When someone tells me 'no', it doesen't mean I can't do it, it simply means I cant't do it with them.
