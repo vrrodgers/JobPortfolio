@@ -6,9 +6,10 @@
 </symbol>
 </defs>
 </svg>
+<%= render partial: 'blogs/admin_actions', locals: {blog: blog} %>
 <div class="blog-container">
-  <%= render partial: 'blogs/admin_actions', locals: {blog: blog} %>
   <div class="blog-header">
+      
       <div class"blog-author">
        <h3><%= gravatar_helper @user %> <%= @user.name%></h3>
       </div>
