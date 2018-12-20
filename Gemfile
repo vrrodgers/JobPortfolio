@@ -51,12 +51,12 @@ gem 'gritter', '~> 1.2'
 gem 'twitter', '~> 6.2'
 gem 'redis', '~> 4.0', '>= 4.0.3'
 gem 'redcarpet', '~> 3.4'
-gem 'coderay', '~> 1.1', '>= 1.1.2'
 gem 'mail_form', '~> 1.7', '>= 1.7.1'
 gem 'rails_admin', '~> 1.4', '>= 1.4.2'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'rails_admin_simplemde', '~> 0.1.0.1'
 gem 'simplemde', '~> 0.1.0'
+gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

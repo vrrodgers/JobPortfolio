@@ -26,4 +26,19 @@ class Blog < ApplicationRecord
     order(" created_at DESC")
   end
   scope :latest, -> { order("Id DESC") }
+  def topic_name
+    topic.try(:title)
+  end
+
+  def topic_name=(name)
+    self.topic = Topic.find_or_create_by(title: name) if title.present?
+  end
+  
+  def blog_status
+    if logged_in?(:user) || !current_user
+      @status = published
+    else
+      @status = all
+    end
+  end
 end
