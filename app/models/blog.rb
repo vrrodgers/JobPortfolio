@@ -9,7 +9,15 @@ class Blog < ApplicationRecord
   has_many :comments, dependent: :destroy
 
    acts_as_taggable
-
+   rails_admin do 
+    field :title
+    field :body, :simplemde
+    field :created_at
+    field :updated_at
+    field :slug
+    field :status
+    field :topic_id
+   end
   def self.feature_blogs
     limit(2)
   end
