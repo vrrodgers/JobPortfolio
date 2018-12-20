@@ -25,4 +25,5 @@ class Blog < ApplicationRecord
   def self.recent
     order(" created_at DESC")
   end
+  scope :latest, -> { order("Id DESC") }
 end

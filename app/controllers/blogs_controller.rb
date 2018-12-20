@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
   before_action :set_sidebar_topics, except: [:update, :create, :destroy, :toggle_status]
+  before_action :set_user, only: [:index]
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :edit, :toggle_status]}, site_admin: :all
 
@@ -11,10 +12,19 @@ class BlogsController < ApplicationController
   def index
     @topic = Topic.all
     @user = User.first
-    if logged_in?(:site_admin)
-      @blogs = Blog.recent.page(params[:page]).per(5)
-    else
-      @blogs = Blog.published.page(params[:page]).per(5)
+    case
+      when params[:title] && @admin_user
+        @blogs = @topic.blogs.page(params[:page]).per(5).latest
+      when params[:title] && @non_admin
+        @blogs = @topic.blogs.published.page(params[:page]).per(5).latest
+      when params[:tag] && @admin_user
+        @blogs = Blog.page.tagged_with(params[:tag]).per(5).latest
+      when params[:tag] && @non_admin
+       @blogs = Blog.published.page.tagged_with(params[:tag]).per(5).latest
+      when @non_admin
+        @blogs = Blog.published.page(params[:page]).per(5).latest
+      else
+        @blogs = Blog.page(params[:page]).per(5).latest
     end
     @page_title = "My Portfolio Blog"
   end
@@ -95,7 +105,7 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :body, :topic_id, :status)
+      params.require(:blog).permit(:title, :body, :topic_id, :status, :tag_list)
     end
     private
 
@@ -103,4 +113,8 @@ class BlogsController < ApplicationController
     @set_side_bar_topics = Topic.with_blogs
   end
 
+  def set_user
+    @admin_user = logged_in?(:site_admin)
+    @non_admin = !logged_in?(:site_admin)
+  end
 end

@@ -1,30 +1,43 @@
 <div class="col-md-4 pull-right" >
     <div class="sidebar-module sidebar-module-inset">
-       <h4>About</h4>
-      <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+       
+      <p><span>"</span>When someone tells me 'no', it doesen't mean I can't do it, it simply means I cant't do it with them.
+        <span>"</span></p>
+        <h6> by: Karen E. Quinones Miller </h6>
+
+        
     </div>
 
-
+    <div class="sidebar-module ">
     
-    <div class="sidebar-module">
-        <h4>Topics</h4>
-        <%  @set_side_bar_topics.each do |topic| %>
-            <p><%= link_to topic.title, topic_path(topic) %></p>
-        <% end %>    
-    </div>
-
-    
-        <%= source_helper("alert alert-info blog-sidebar-source") %>
-   
-   
-    <div class="sidebar-module">
-      <h4>Elsewhere</h4>
         <ol class="list-unstyled social-links">
             <li><a href="#"><%=fa_icon "github"%></a></li>
             <li><a href="#"><%=fa_icon "facebook"%></a></li>
             <li><a href="#"><%=fa_icon "twitter"%></a></li>
             <li><a href="#"><%=fa_icon "instagram"%></a></li>
-            
         </ol>
     </div>
+    
+    <div class="sidebar-module">
+        <h4>Topics</h4>
+        <%  @set_side_bar_topics.each do |topic| %>
+            <p><%= link_to topic.title, topic_path(topic) %></p>
+        <% end %>  
+        
+        
+    </div>
+
+    <h5><%= fa_icon "tags"%> Tags</h5>
+    <div class="tagcloud">
+        <% tag_cloud Blog.tag_counts, %w{s m l} do |tag, css_class| %>
+        <%= link_to tag.name.capitalize, tag_path(tag.name), class: css_class %>
+        <% end %>
+
+    </div>
+
+    
+    <%= source_helper("alert alert-info blog-sidebar-source") %>
+   
+   
+    
 </div>
