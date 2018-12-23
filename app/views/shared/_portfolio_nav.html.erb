@@ -11,18 +11,19 @@
                  <ul class="list-unstyled">
                      <%= nav_helper 'text-white', 'li' %>
                     <li><%= login_helper "text-white"%>
+                    <li><%= link_to "Admin", rails_admin_path, class: 'text-white' if logged_in?(:site_admin)%></li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
 
-    <div class="navbar navbar-dark bg-dark">
-        <div class="container d-flex justify-content-between">
-            <a href="#" class="navbar-brand">Victoria Rodgers</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+<div class="navbar navbar-dark bg-dark">
+    <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand">Victoria Rodgers</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
+        </button>
     </div>
+</div>
 

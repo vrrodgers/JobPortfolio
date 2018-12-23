@@ -57,6 +57,7 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem 'rails_admin_simplemde', '~> 0.1.0.1'
 gem 'simplemde', '~> 0.1.0'
 gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
+gem 'social-share-button', '~> 1.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

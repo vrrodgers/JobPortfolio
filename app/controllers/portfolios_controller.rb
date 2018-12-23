@@ -50,7 +50,9 @@ class PortfoliosController < ApplicationController
       end
     end
     def show
-
+       @last = Portfolio.last
+       @first = Portfolio.first 
+       @related_portfolio= Portfolio.where(category_id: @portfolio_item.category_id).take(3)
     end
     def destroy
         #perform the lookup
