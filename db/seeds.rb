@@ -15,7 +15,7 @@ end
 
 puts "3 Topics created"
 
-10.times do |blog|
+1.times do |blog|
     Blog.create!(
         title: "My blog Post #{blog}",
         body: "s simply dummy text of the 
@@ -30,7 +30,7 @@ puts "3 Topics created"
          topic_id: Topic.last.id
     )
 end
-puts "10 blog posts created"
+puts "1 blog posts created"
 
 5.times do |skill|
     Skill.create!(
@@ -39,7 +39,8 @@ puts "10 blog posts created"
     )
 end
 puts "5 skills created" 
-8.times do |portfolio_item|
+
+1.times do |portfolio_item|
   Portfolio.create!(
     title: "Portfolio title: #{portfolio_item}",
     subtitle: "Ruby on Rails",
@@ -59,7 +60,7 @@ end
   )
 end
 
-puts "9 portfolio items created"
+puts "1 portfolio items created"
 
 3.times do |technology| 
     Technology.create!(
@@ -68,3 +69,36 @@ puts "9 portfolio items created"
     )
 end
 puts "3 technologies  created"
+
+ProjectType.create!(
+    name: "project"
+)
+ProjectType.create!(
+    name: "experience"
+)
+puts "2 project types created"
+
+3.times do |projects| 
+    Project.create!(
+    name: "project #{project}",
+    title: "this is one",
+    state: "IL",
+    city: "chicago",
+    start_month: "IL",
+    start_year: 2018,
+   end_month: "dec"
+   end_year: 2018,
+   project_type_id: 1
+    )
+end
+puts "3 projects created"
+
+Education.create!(
+   name: "rockford",
+    title: "rails dev",
+    description: " made web sites",
+   state: "il",
+    city: "chicago",
+    year_completed:  2017
+)
+puts "1 education created"
