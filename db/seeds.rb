@@ -102,3 +102,17 @@ Education.create!(
     year_completed:  2017
 )
 puts "1 education created"
+
+links_list = [
+    ["github", "social media", 1 , "https://github.com"],
+    ["codepen", "social media", 1, "http://codepen.io"],
+    ["jsfiddle", "social media", 1, "https://jsfiddle.net/"],
+    ["linkedin", "social media", 1, "https://www.linkedin.com"]
+  ]
+ 
+
+links_list.each do |name, category, user_id, url|
+  Link.create!(name: name, category: category, user_id: user_id, url: url)
+end
+
+puts "4 Social links were created"
