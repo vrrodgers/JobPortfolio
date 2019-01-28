@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_action :set_links
   before_action :set_side_bar_topics
   before_action :set_user, only: [:index, :show]
   layout 'blog'
@@ -27,5 +28,8 @@ class TopicsController < ApplicationController
   def set_user
     @user = User.first
   end
-
+  
+  def set_links
+    @links = Link.where(category: "social media")
+  end
 end
