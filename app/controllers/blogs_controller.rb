@@ -1,10 +1,10 @@
 class BlogsController < ApplicationController
+  before_action :set_links
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
   before_action :set_sidebar_topics, except: [:update, :create, :destroy, :toggle_status]
   before_action :set_user, only: [:index, :search]
   before_action :set_blog_title, only: [:show, :edit, :update, :destroy, :toggle_status]
   before_action :set_topic, only: [:index, :search]
-  before_action :set_links
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :edit, :toggle_status]}, site_admin: :all
 
